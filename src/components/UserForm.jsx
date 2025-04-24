@@ -8,7 +8,9 @@ const UserForm = ({ user, fetchUsers }) => {
     age: '',
   });
 
-  const apiUrl = import.meta.env.VITE_APP_URL;
+  // const apiUrl = import.meta.env.VITE_APP_URL;
+  const apiUrl = "https://vercel-crud-backend-omega.vercel.app";
+
 
   // If editing an existing user, populate the form with their data
   useEffect(() => {

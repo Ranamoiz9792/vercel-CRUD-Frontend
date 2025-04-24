@@ -6,7 +6,9 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
 
-  const apiUrl = import.meta.env.VITE_APP_URL;
+  // const apiUrl = import.meta.env.VITE_APP_URL;
+  const apiUrl = "https://vercel-crud-backend-omega.vercel.app";
+
 
   const fetchUsers = async () => {
     const res = await axios.get(`${apiUrl}/list`);
