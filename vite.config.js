@@ -8,7 +8,7 @@ export default defineConfig({
     tailwindcss(),react()],
     server: {
       proxy: {
-        '/api': 'http://localhost:5000', // Proxy backend API requests
+        '/api': 'https://vercel-crud-backend-kappa.vercel.app/', // Proxy backend API requests
       },
     },
 })
