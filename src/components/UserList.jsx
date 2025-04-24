@@ -6,14 +6,16 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
 
+  const apiUrl = import.meta.env.VITE_APP_URL;
+
   const fetchUsers = async () => {
-    const res = await axios.get('/api/users');
+    const res = await axios.get(`${apiUrl}/list`);
     setUsers(res.data);
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`/api/users/${id}`);
-    fetchUsers(); // Refresh list
+    await axios.delete(`${apiUrl}/delete/${id}`);
+    fetchUsers();
   };
 
   useEffect(() => {

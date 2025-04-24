@@ -8,6 +8,8 @@ const UserForm = ({ user, fetchUsers }) => {
     age: '',
   });
 
+  const apiUrl = import.meta.env.VITE_APP_URL;
+
   // If editing an existing user, populate the form with their data
   useEffect(() => {
     if (user) {
@@ -22,9 +24,9 @@ const UserForm = ({ user, fetchUsers }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (user) {
-      await axios.put(`/api/users/${user._id}`, formData);
+      await axios.put(`${apiUrl}/update/${user._id}`, formData);
     } else {
-      await axios.post('/api/users', formData);
+      await axios.post(`${apiUrl}/create`, formData);
     }
     setFormData({ name: '', email: '', age: '' }); // Clear form
     fetchUsers(); // Refresh user list
